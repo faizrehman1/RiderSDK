@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dastgyr_color"/>
+
+    <EditText
+        android:layout_marginTop="45dp"
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:backgroundTint="@color/grey500"
+        android:gravity="center"
+        android:hint="Profile Id"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey500"
+        android:textSize="18sp"
+        android:text=""
+        />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:backgroundTint="@color/grey500"
+        android:gravity="center"
+        android:hint="User Name"
+        android:text=""
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey500"
+        android:textSize="18sp"
+        />
+
+
+
+    <TextView
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center"
+        android:id="@+id/next_btn"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:background="#EC3027"
+        android:gravity="center"
+        android:text="Next"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+      />
+    </LinearLayout>
+
+</RelativeLayout>

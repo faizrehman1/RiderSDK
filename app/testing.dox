@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dasho version="11.0.0">
+    <global>
+        <option>IGNORENOTFOUNDCLASSES</option>
+        <option>FORNAMEDETECTION</option>
+        <option>FORCE</option>
+    </global>
+    <classpath useJDKHome="true" JDKHome="${JDK_HOME:-}"/>
+    <report path="${dasho.project}-report.txt"/>
+    <output merge="false">
+        <dir path="obfuscated"/>
+    </output>
+    <removal classes="unused" members="unused-non-public">
+        <debug/>
+        <attributes/>
+    </removal>
+    <renaming option="on">
+        <mapping>
+            <mapreport path="${dasho.project}-mapreport.txt"/>
+            <mapoutput overwrite="true" path="${dasho.project}.map"/>
+        </mapping>
+    </renaming>
+    <optimization option="on"/>
+    <controlflow tryCatch="on" option="on"/>
+    <stringencrypt level="2" implementations="2" option="on">
+        <seOutput path="${dasho.project}-se.map"/>
+    </stringencrypt>
+</dasho>

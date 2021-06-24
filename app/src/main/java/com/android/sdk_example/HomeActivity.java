@@ -11,8 +11,11 @@ import android.view.View;
 import android.widget.Button;
 
 
+import com.tilismtech.tellotalksdk.entities.DepartmentConversations;
 import com.tilismtech.tellotalksdk.listeners.OnSuccessListener;
 import com.tilismtech.tellotalksdk.managers.TelloApiClient;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,6 +29,7 @@ public class HomeActivity extends AppCompatActivity {
     @BindView(R.id.btn_openchat)
     Button btn_openchat;
     private TelloApiClient telloApiClient;
+    private ArrayList<DepartmentConversations> departmentConversations = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
         telloApiClient = AppController.getInstance().getTelloApiClient();
+
 //        if (!EasyPermissions.hasPermissions(TelloApplication.getInstance(), Manifest.permission.READ_CONTACTS)) {
 //            EasyPermissions.requestPermissions(this, Html.fromHtml(getString(com.tilismtech.tellotalksdk.R.string.contact_permission)).toString(), ATTACHMENT_CHOICE_CONTACT, Manifest.permission.READ_CONTACTS);
 //            return;
@@ -47,11 +52,22 @@ public class HomeActivity extends AppCompatActivity {
         switch (id){
 
             case R.id.btn_openchat:
-                telloApiClient.openChatList(HomeActivity.this);
+            //    telloApiClient.openChatList(HomeActivity.this);
 
                 break;
             case R.id.open_chat:
-                telloApiClient.openCorporateChat(HomeActivity.this);
+                if(departmentConversations.size()!=0) {
+                    telloApiClient.setLocality("en");
+                    telloApiClient.setPackageName("com.bykea.tellotalksdk.SplashActivity");
+                    telloApiClient.openCorporateChat(HomeActivity.this, "ہیلو دنیا",
+                            "ہیلو دنیا", departmentConversations.get(0));
+                }else{
+                    departmentConversations.addAll(telloApiClient.getDepartment());
+                    telloApiClient.setLocality("en");
+                    telloApiClient.setPackageName("com.bykea.tellotalksdk.SplashActivity");
+                    telloApiClient.openCorporateChat(HomeActivity.this, "ہیلو دنیا",
+                            "ہیلو دنیا", departmentConversations.get(0));
+                }
                 break;
             case R.id.logout_chat:
                 telloApiClient.logOff(new OnSuccessListener<Boolean>()  {

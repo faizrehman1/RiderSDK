@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         final ProgressDialog progressDialog = ProgressDialog.show(MainActivity.this, "", "please wait...");
         String profileId = username.getText().toString();
         String userName =  password.getText().toString();
-        AppController.getInstance().getTelloApiClient().registerUser( profileId,"test",profileId, new OnSuccessListener<Boolean>() {
+        AppController.getInstance().getTelloApiClient().registerUser( profileId,"test",profileId,"", new OnSuccessListener<Boolean>() {
             @Override
             public void onSuccess(Boolean object) {
                 progressDialog.dismiss();

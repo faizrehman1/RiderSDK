@@ -60,13 +60,13 @@ public class HomeActivity extends AppCompatActivity {
                     telloApiClient.setLocality("en");
                     telloApiClient.setPackageName("com.bykea.tellotalksdk.SplashActivity");
                     telloApiClient.openCorporateChat(HomeActivity.this, "ہیلو دنیا",
-                            "ہیلو دنیا", departmentConversations.get(0));
+                            "ہیلو دنیا");
                 }else{
                     departmentConversations.addAll(telloApiClient.getDepartment());
                     telloApiClient.setLocality("en");
                     telloApiClient.setPackageName("com.bykea.tellotalksdk.SplashActivity");
                     telloApiClient.openCorporateChat(HomeActivity.this, "ہیلو دنیا",
-                            "ہیلو دنیا", departmentConversations.get(0));
+                            "ہیلو دنیا");
                 }
                 break;
             case R.id.logout_chat:
